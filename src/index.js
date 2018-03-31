@@ -16,15 +16,17 @@ const products = [<li>{BUTCHER_PRODUCTS[0]}</li>,<li>{BUTCHER_PRODUCTS[1]}</li>,
 export class OlderCoaster extends React.Component {
   // your code here
   render(){
-    return (
-      <div class="oldercoaster">
-        <p>Two grannies having the time of their life!</p>
-        <p>Passengers:</p>
-        <ul>
-          <li>Agnes</li>
-          <li>Muriel</li>
-        </ul>
-      </div>
+    return(
+      React.createElement('div', {className: 'oldercoaster'}, [
+        React.createElement('p', {}, 'Two grannies having the time of their life!'),
+        React.createElement('p', {}, 'Passengers:'),
+        React.createElement('ul', {}, [
+          React.createElement('li', {}, 'Agnes'),
+          React.createElement('li', {}, 'Muriel')
+
+        ])
+
+      ])
     )
   }
 }
@@ -32,10 +34,11 @@ export class OlderCoaster extends React.Component {
 export class InFrontOfYou extends React.Component {
   render(){
     return(
-      <div>
-        <p>You shouldn't look too far.</p>
-        <p>Sometimes, the solution is right in front of you.</p>
-      </div>
+      React.createElement('div', {}, [
+        React.createElement('p', {}, "You shouldn't look too far."),
+        React.createElement('p', {}, "Sometimes, the solution is right in front of you.")
+
+      ])
     )
   }
 }
@@ -43,12 +46,12 @@ export class InFrontOfYou extends React.Component {
 export class ButcherShop extends React.Component {
   render(){
     return (
-      <div class="butcher-shop">
-        <p>Hello! We have the following products for sale today:</p>
-        <ul>
-          {products}
-        </ul>
-      </div>
+      React.createElement('div', {className: 'butcher-shop'}, [
+        React.createElement('p', {}, 'Hello! We have the following products for sale today:'),
+        React.createElement('ul', {}, [
+          BUTCHER_PRODUCTS.map(product => <li>{product}</li>)
+        ])
+      ])
     )
   }
 }
